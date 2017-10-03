@@ -5,9 +5,9 @@ $bytes = [System.IO.File]::readallbytes($filename);
 #$encodedsectext = [convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($sectext));
  $sos=0;
  $sosflag=$false;
- for($i=0; $i -lt $bytes.length-1; $i++){
+ for($i=0; $i -lt $bytes.length; $i++){
         if(($bytes[$i]-eq 255)-and($bytes[$i+1] -eq 218)){
-            $sos = $i +1;
+            $sos = $i;
             $sosflag = $true;
             echo $sos;
             }
